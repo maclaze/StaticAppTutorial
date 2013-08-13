@@ -6,6 +6,22 @@ describe "Static pages" do
             page.should have_content('Sample App')
         end
     end
+    
+    describe "Title test" do
+        it "should have the title RRT | Home " do
+            visit '/static_pages/home'
+            page.should have_selector('title', :text => " | Home")
+        end
+        it "should have the title RRT | about " do
+            visit '/static_pages/about'
+            page.should have_selector('title', :text => " | About")
+        end
+        it "should have the title RRT | help " do
+            visit '/static_pages/help'
+            page.should have_selector('title', :text => " | Help")
+        end
+    end
+        
     describe "Help page" do
         it "should have the content 'Help'" do
             visit '/static_pages/help'
